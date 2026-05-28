@@ -1,0 +1,1992 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moksha Smruthi Morapakula | Data Science & AI Portfolio</title>
+  <meta name="description" content="Portfolio for Moksha Smruthi Morapakula, a data science and AI engineer building causal analytics, machine learning pipelines, dashboards, and multimodal AI systems.">
+  <meta name="author" content="Moksha Smruthi Morapakula">
+  <meta property="og:title" content="Moksha Smruthi Morapakula | Data Science & AI Portfolio">
+  <meta property="og:description" content="Proof-driven data science portfolio spanning causal inference, ML pipelines, satellite intelligence, computer vision, and analytics dashboards.">
+  <meta property="og:image" content="https://github.com/mime108.png">
+  <meta property="og:type" content="website">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Esteban&family=Montserrat:wght@600;700;800;900&display=swap");
+
+    :root {
+      --ink: #2c3e50;
+      --muted: #7f8c8d;
+      --line: #bdc3c7;
+      --panel: #ffffff;
+      --paper: #ecf0f1;
+      --slate: #35475e;
+      --mist: #ecf0f1;
+      --silver: #bdc3c7;
+      --stone: #7f8c8d;
+      --charcoal: #2c3e50;
+      --green: #7f8c8d;
+      --red: #35475e;
+      --blue: #35475e;
+      --gold: #bdc3c7;
+      --violet: #7f8c8d;
+      --shadow: 0 18px 55px rgba(44, 62, 80, .12);
+      --shadow-strong: 0 24px 70px rgba(44, 62, 80, .22);
+      --radius: 8px;
+      --max: 1180px;
+      --font-display: "Montserrat", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-text: "Esteban", Georgia, "Times New Roman", serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(44, 62, 80, .07) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(44, 62, 80, .055) 1px, transparent 1px),
+        linear-gradient(180deg, var(--mist) 0, #ffffff 48%, #f4f6f7 100%);
+      background-size: 44px 44px;
+      font-family: var(--font-text);
+      line-height: 1.55;
+    }
+
+    .scroll-progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 4px;
+      z-index: 20;
+      background: transparent;
+      pointer-events: none;
+    }
+
+    .scroll-progress span {
+      display: block;
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--charcoal), var(--slate), var(--stone), var(--silver));
+      box-shadow: 0 0 18px rgba(53, 71, 94, .34);
+      transform-origin: left center;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 10px;
+      padding: 10px 14px;
+      background: var(--ink);
+      color: #fff;
+      z-index: 10;
+    }
+
+    .skip:focus {
+      left: 10px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 6;
+      background: rgba(236, 240, 241, .90);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(44, 62, 80, .18);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 68px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      letter-spacing: 0;
+      color: var(--ink);
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: conic-gradient(from 130deg, var(--charcoal), var(--slate), var(--stone), var(--silver), var(--charcoal));
+      border: 2px solid #fff;
+      box-shadow: 0 6px 18px rgba(17, 17, 17, .18);
+      animation: markSpin 9s linear infinite;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+      background: rgba(189, 195, 199, .36);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 42px;
+      padding: 0 15px;
+      border: 1px solid rgba(17, 17, 17, .16);
+      border-radius: var(--radius);
+      background: #fff;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 14px;
+      box-shadow: 0 8px 22px rgba(17, 17, 17, .07);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: var(--slate);
+      background: var(--silver);
+      box-shadow: 0 14px 30px rgba(17, 17, 17, .16);
+    }
+
+    .button.primary {
+      background: var(--charcoal);
+      color: #fff;
+      border-color: var(--charcoal);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .hero {
+      min-height: calc(100vh - 68px);
+      display: grid;
+      align-items: center;
+      padding: 54px 0 36px;
+      position: relative;
+      isolation: isolate;
+      background:
+        linear-gradient(100deg, var(--silver) 0 52%, transparent 52%),
+        radial-gradient(circle at 76% 28%, rgba(127, 140, 141, .20), transparent 28%),
+        linear-gradient(180deg, var(--mist) 0%, #ffffff 100%);
+      border-top: 0;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(44, 62, 80, .09) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(44, 62, 80, .08) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(90deg, #000 0 62%, rgba(0,0,0,.35) 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 34vw;
+      height: 34vw;
+      right: -13vw;
+      top: 9vh;
+      z-index: -1;
+      border: 2px solid rgba(44, 62, 80, .16);
+      border-radius: 50%;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-grid > div:first-child {
+      animation: riseIn .72s ease both;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      width: fit-content;
+      padding: 7px 10px;
+      border: 1px solid rgba(14, 118, 101, .22);
+      border-radius: 999px;
+      background: rgba(14, 118, 101, .08);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .24);
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(44, 62, 80, .10);
+      animation: pulseGlow 1.9s ease-in-out infinite;
+    }
+
+    h1 {
+      margin: 22px 0 14px;
+      max-width: 860px;
+      font-family: var(--font-display);
+      font-size: clamp(44px, 7vw, 86px);
+      line-height: .96;
+      letter-spacing: 0;
+      color: var(--ink);
+      text-wrap: balance;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      color: rgba(44, 62, 80, .76);
+      font-size: clamp(18px, 2.2vw, 24px);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .positioning {
+      max-width: 720px;
+      margin: 13px 0 0;
+      color: rgba(44, 62, 80, .86);
+      font-size: 18px;
+      line-height: 1.55;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .stat {
+      padding: 17px;
+      background: rgba(44, 62, 80, .96);
+      color: #fff;
+      border: 1px solid rgba(44, 62, 80, .32);
+      border-radius: var(--radius);
+      min-height: 104px;
+      box-shadow: 0 14px 34px rgba(44, 62, 80, .18);
+      transition: transform .22s ease, background .22s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-3px);
+      background: var(--slate);
+    }
+
+    .stat strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 26px;
+      line-height: 1;
+      margin-bottom: 9px;
+    }
+
+    .stat span {
+      display: block;
+      color: rgba(255, 255, 255, .78);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .portrait-wrap {
+      position: relative;
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+    }
+
+    .signal-board {
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--charcoal);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 20% 16%, rgba(189, 195, 199, .44), transparent 25%),
+        radial-gradient(circle at 78% 22%, rgba(53, 71, 94, .24), transparent 30%),
+        radial-gradient(circle at 66% 82%, rgba(127, 140, 141, .28), transparent 27%),
+        linear-gradient(145deg, rgba(44,62,80,.94), rgba(53,71,94,.86));
+      box-shadow: var(--shadow-strong);
+      animation: floatBoard 7s ease-in-out infinite;
+    }
+
+    .portrait {
+      position: relative;
+      width: min(76%, 360px);
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: var(--radius);
+      border: 8px solid var(--silver);
+      box-shadow: 0 25px 70px rgba(44, 62, 80, .34);
+      background: #fff;
+      animation: portraitIn .8s ease .12s both;
+    }
+
+    .orbit {
+      position: absolute;
+      padding: 10px 12px;
+      max-width: 176px;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid rgba(44, 62, 80, .20);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 35px rgba(44, 62, 80, .14);
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 800;
+      animation: drift 5.5s ease-in-out infinite;
+    }
+
+    .orbit small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .orbit.one { top: 9%; left: 6%; border-left: 4px solid var(--silver); }
+    .orbit.two { right: 3%; top: 31%; border-left: 4px solid var(--red); animation-delay: .4s; }
+    .orbit.three { left: 9%; bottom: 13%; border-left: 4px solid var(--green); animation-delay: .8s; }
+
+    section {
+      padding: 78px 0;
+      border-top: 1px solid rgba(44, 62, 80, .14);
+      background:
+        linear-gradient(90deg, rgba(44, 62, 80, .04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(44, 62, 80, .035) 1px, transparent 1px),
+        #ffffff;
+      background-size: 44px 44px;
+      position: relative;
+    }
+
+    section:nth-of-type(2n + 3) {
+      background:
+        linear-gradient(90deg, rgba(44, 62, 80, .04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(44, 62, 80, .035) 1px, transparent 1px),
+        var(--mist);
+      background-size: 44px 44px;
+    }
+
+    #story,
+    #contact {
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, .05) 1px, transparent 1px),
+        var(--charcoal);
+      background-size: 44px 44px;
+      color: #fff;
+    }
+
+    #case-study {
+      background:
+        linear-gradient(110deg, var(--mist) 0 58%, var(--silver) 58% 100%);
+    }
+
+    #projects {
+      background:
+        linear-gradient(180deg, #ffffff 0, var(--mist) 100%);
+    }
+
+    #github {
+      background:
+        linear-gradient(90deg, rgba(44, 62, 80, .075) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(44, 62, 80, .055) 1px, transparent 1px),
+        var(--silver);
+      background-size: 44px 44px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(220px, .38fr) minmax(0, .62fr);
+      gap: 34px;
+      margin-bottom: 32px;
+      align-items: start;
+    }
+
+    .section-kicker {
+      font-family: var(--font-display);
+      color: var(--green);
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .08em;
+    }
+
+    h2 {
+      margin: 5px 0 0;
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    #story .section-kicker,
+    #contact .section-kicker {
+      color: var(--silver);
+    }
+
+    #story .section-head p,
+    #contact .contact-band p {
+      color: rgba(255, 255, 255, .76);
+    }
+
+    #story .section-head h2,
+    #contact h2 {
+      color: #fff;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(300px, .48fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .copy-block,
+    .proof-card,
+    .project-card,
+    .timeline-item,
+    .skill-card,
+    .education-card {
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid rgba(44, 62, 80, .16);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(44, 62, 80, .08);
+    }
+
+    .copy-block {
+      padding: 28px;
+      font-size: 18px;
+      color: var(--ink);
+      border-left: 7px solid var(--slate);
+    }
+
+    .copy-block p {
+      margin: 0 0 17px;
+    }
+
+    .copy-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .proof-card {
+      padding: 24px;
+      background: var(--charcoal);
+      color: #fff;
+      border-color: var(--charcoal);
+    }
+
+    .proof-card .proof-list li {
+      color: rgba(255, 255, 255, .78);
+    }
+
+    .proof-card h3,
+    .project-card h3,
+    .timeline-item h3,
+    .skill-card h3,
+    .education-card h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 20px;
+      line-height: 1.25;
+    }
+
+    .proof-list {
+      display: grid;
+      gap: 13px;
+      padding: 0;
+      margin: 19px 0 0;
+      list-style: none;
+    }
+
+    .proof-list li {
+      display: grid;
+      grid-template-columns: 13px 1fr;
+      gap: 10px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .proof-list li::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(300px, .5fr);
+      gap: 22px;
+    }
+
+    .map-panel {
+      min-height: 500px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(44, 62, 80, .065) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(44, 62, 80, .055) 1px, transparent 1px),
+        #ffffff;
+      background-size: 42px 42px;
+      border: 1px solid rgba(44, 62, 80, .18);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .node {
+      position: absolute;
+      width: 158px;
+      min-height: 84px;
+      padding: 13px;
+      border: 1px solid rgba(189, 195, 199, .45);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 14px 32px rgba(44, 62, 80, .12);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .node span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 5px;
+      line-height: 1.32;
+    }
+
+    .node.core {
+      width: 190px;
+      min-height: 118px;
+      left: calc(50% - 95px);
+      top: calc(50% - 59px);
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    .node.core span {
+      color: rgba(255, 255, 255, .76);
+    }
+
+    .n1 { top: 8%; left: 8%; border-top: 5px solid var(--blue); }
+    .n2 { top: 10%; right: 7%; border-top: 5px solid var(--green); }
+    .n3 { bottom: 12%; left: 10%; border-top: 5px solid var(--red); }
+    .n4 { bottom: 9%; right: 8%; border-top: 5px solid var(--gold); }
+    .n5 { top: 42%; left: 3%; border-top: 5px solid var(--violet); }
+    .n6 { top: 44%; right: 3%; border-top: 5px solid var(--stone); }
+
+    .matrix {
+      display: grid;
+      gap: 12px;
+    }
+
+    .matrix-row {
+      display: grid;
+      gap: 5px;
+      padding: 16px;
+      background: #fff;
+      border: 1px solid rgba(44, 62, 80, .18);
+      border-radius: var(--radius);
+    }
+
+    .matrix-row strong {
+      font-family: var(--font-display);
+      font-size: 15px;
+    }
+
+    .matrix-row span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .story-panel {
+      display: grid;
+      grid-template-columns: minmax(300px, .45fr) minmax(0, .75fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .story-sticky {
+      position: sticky;
+      top: 96px;
+      min-height: 520px;
+      padding: 24px;
+      border: 1px solid rgba(189, 195, 199, .45);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(44, 62, 80, .92), rgba(53, 71, 94, .88)),
+        url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80") center / cover;
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .story-sticky::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 38px 38px;
+      opacity: .75;
+    }
+
+    .story-sticky > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .story-sticky h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3vw, 44px);
+      line-height: 1.05;
+    }
+
+    .story-meter {
+      margin-top: 30px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .meter-row {
+      display: grid;
+      gap: 7px;
+      font-family: var(--font-display);
+      font-weight: 850;
+      color: rgba(255, 255, 255, .82);
+    }
+
+    .meter-bar {
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .18);
+      overflow: hidden;
+    }
+
+    .meter-bar span {
+      display: block;
+      height: 100%;
+      width: var(--fill);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--silver), #fff, var(--stone));
+      transform: scaleX(.2);
+      transform-origin: left;
+      transition: transform .8s ease;
+    }
+
+    .story-sticky.is-visible .meter-bar span {
+      transform: scaleX(1);
+    }
+
+    .story-steps {
+      display: grid;
+      gap: 18px;
+    }
+
+    .story-step {
+      min-height: 220px;
+      padding: 26px;
+      border: 1px solid rgba(189, 195, 199, .55);
+      border-radius: var(--radius);
+      background: rgba(236, 240, 241, .96);
+      box-shadow: 0 10px 30px rgba(44, 62, 80, .16);
+      color: var(--ink);
+    }
+
+    .story-step .step-number {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .story-step h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--ink);
+    }
+
+    .story-step p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .featured {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(320px, .45fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .case-visual {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, .72fr);
+      gap: 24px;
+      align-items: end;
+      min-height: 420px;
+      padding: 24px;
+      border: 1px solid rgba(44, 62, 80, .18);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(53, 71, 94, .20), rgba(127, 140, 141, .14)),
+        #ffffff;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-photo {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3.05;
+      object-fit: cover;
+      border: 7px solid #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 18px 42px rgba(44, 62, 80, .22);
+      opacity: .92;
+      align-self: end;
+    }
+
+    .pipeline {
+      display: grid;
+      gap: 13px;
+      max-width: none;
+    }
+
+    .pipe-step {
+      padding: 15px 16px;
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid rgba(44, 62, 80, .18);
+      border-left: 5px solid var(--blue);
+      border-radius: var(--radius);
+      font-weight: 900;
+      box-shadow: 0 10px 26px rgba(44, 62, 80, .10);
+    }
+
+    .pipe-step:nth-child(2) { border-left-color: var(--green); margin-left: 24px; }
+    .pipe-step:nth-child(3) { border-left-color: var(--red); margin-left: 48px; }
+    .pipe-step:nth-child(4) { border-left-color: var(--gold); margin-left: 72px; }
+
+    .pipe-step span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .case-copy {
+      padding: 28px;
+      background: #fff;
+      border: 1px solid rgba(44, 62, 80, .18);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(44, 62, 80, .10);
+    }
+
+    .case-copy p {
+      color: var(--muted);
+      margin: 14px 0 0;
+    }
+
+    .terminal {
+      margin-top: 18px;
+      background: var(--charcoal);
+      color: var(--mist);
+      border-radius: var(--radius);
+      padding: 16px;
+      font: 13px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      overflow-x: auto;
+    }
+
+    .timeline,
+    .projects,
+    .skills,
+    .education-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .timeline-item,
+    .project-card,
+    .skill-card,
+    .education-card {
+      padding: 24px;
+    }
+
+    .timeline-item {
+      position: relative;
+      overflow: hidden;
+      padding-top: 32px;
+      border-top: 8px solid var(--slate);
+      background:
+        linear-gradient(135deg, rgba(236, 240, 241, .96), #fff 62%);
+    }
+
+    .timeline-item:first-child {
+      background:
+        linear-gradient(135deg, rgba(53, 71, 94, .97), rgba(44, 62, 80, .94));
+      color: #fff;
+      border-top-color: var(--silver);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .timeline-item:nth-child(2) {
+      border-top-color: var(--stone);
+    }
+
+    .timeline-item:nth-child(3) {
+      border-top-color: var(--charcoal);
+    }
+
+    .timeline-item:nth-child(4) {
+      border-top-color: var(--silver);
+    }
+
+    .timeline-item::after {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      right: -82px;
+      top: -92px;
+      border-radius: 50%;
+      border: 28px solid rgba(127, 140, 141, .12);
+      pointer-events: none;
+    }
+
+    .timeline-item:first-child p,
+    .timeline-item:first-child .item-meta,
+    .timeline-item:first-child .detail-list li {
+      color: rgba(255, 255, 255, .78);
+    }
+
+    .item-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      color: var(--muted);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 800;
+      margin-top: 7px;
+    }
+
+    .timeline-item p,
+    .project-card p,
+    .skill-card p,
+    .education-card p {
+      color: var(--muted);
+      margin: 13px 0 0;
+    }
+
+    .detail-list {
+      display: grid;
+      gap: 9px;
+      padding: 0;
+      margin: 16px 0 0;
+      list-style: none;
+    }
+
+    .detail-list li {
+      display: grid;
+      grid-template-columns: 12px 1fr;
+      gap: 10px;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 700;
+    }
+
+    .detail-list li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      margin-top: 9px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, .55fr);
+      grid-template-rows: auto auto;
+      gap: 20px;
+      align-items: start;
+      overflow: hidden;
+      border-top: 7px solid var(--slate);
+      transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+    }
+
+    .project-card:nth-child(2) { border-top-color: var(--stone); }
+    .project-card:nth-child(3) { border-top-color: var(--charcoal); }
+    .project-card:nth-child(4) { border-top-color: var(--silver); }
+    .project-card:nth-child(5) { border-top-color: var(--slate); }
+    .project-card:nth-child(6) { border-top-color: var(--stone); }
+    .project-card:nth-child(7) { border-top-color: var(--charcoal); }
+    .project-card:nth-child(8) { border-top-color: var(--silver); }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(53, 71, 94, .45);
+      box-shadow: 0 20px 46px rgba(44, 62, 80, .16);
+    }
+
+    .project-card > div:first-child {
+      display: grid;
+      align-content: start;
+    }
+
+    .project-side {
+      display: contents;
+    }
+
+    .project-image {
+      position: relative;
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      min-height: 205px;
+      margin: 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(44, 62, 80, .18);
+      background: var(--paper);
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 205px;
+      object-fit: cover;
+      filter: saturate(.94) contrast(1.03);
+      transform: scale(1.02);
+      transition: transform .6s ease, filter .6s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.08);
+      filter: saturate(1.08) contrast(1.06);
+    }
+
+    .project-image figcaption {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 6px 9px;
+      max-width: calc(100% - 20px);
+      border-radius: 999px;
+      background: rgba(44, 62, 80, .84);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .project-proof {
+      display: grid;
+      grid-column: 1;
+      grid-row: 2;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 0;
+    }
+
+    .project-proof span {
+      padding: 10px 12px;
+      border: 1px solid rgba(44, 62, 80, .18);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--mist), #fff);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tags span {
+      padding: 6px 9px;
+      background: rgba(189, 195, 199, .28);
+      border: 1px solid rgba(53, 71, 94, .20);
+      border-radius: 999px;
+      color: var(--slate);
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .github-panel {
+      padding: 24px;
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid rgba(44, 62, 80, .20);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .github-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .github-stat {
+      border: 1px solid rgba(44, 62, 80, .20);
+      border-radius: var(--radius);
+      padding: 13px;
+      min-height: 82px;
+      background: var(--mist);
+    }
+
+    .github-stat strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 22px;
+    }
+
+    .github-stat span {
+      color: var(--muted);
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .repo-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 15px;
+    }
+
+    .repo-list a {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid rgba(44, 62, 80, .18);
+      border-radius: var(--radius);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 800;
+      background: #fff;
+    }
+
+    .repo-list a span {
+      color: var(--muted);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .skills {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .education-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-band {
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(300px, .42fr);
+      gap: 24px;
+      padding: 32px;
+      background: var(--ink);
+      color: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-band h2 {
+      margin-top: 0;
+    }
+
+    .contact-band p {
+      color: rgba(255, 255, 255, .74);
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 10px;
+      align-content: center;
+    }
+
+    .contact-links .button {
+      width: 100%;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .js-reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .js-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes portraitIn {
+      from { opacity: 0; transform: translateY(18px) scale(.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes floatBoard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 6px rgba(14, 118, 101, .13); }
+      50% { box-shadow: 0 0 0 10px rgba(14, 118, 101, .05); }
+    }
+
+    @keyframes markSpin {
+      to { filter: hue-rotate(360deg); }
+    }
+
+    footer {
+      padding: 32px 0 48px;
+      color: var(--muted);
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 940px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid,
+      .section-head,
+      .two-col,
+      .signal-grid,
+      .featured,
+      .story-panel,
+      .project-card,
+      .contact-band {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item,
+      .timeline-item:first-child,
+      .timeline-item:nth-child(2) {
+        grid-column: auto;
+      }
+
+      .story-sticky {
+        position: relative;
+        top: auto;
+        min-height: 420px;
+      }
+
+      .case-photo {
+        width: 100%;
+        margin-top: 24px;
+      }
+
+      .case-visual {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image,
+      .project-proof {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .project-side {
+        display: grid;
+        gap: 14px;
+      }
+
+      .project-proof {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait-wrap {
+        min-height: 460px;
+      }
+
+      .skills,
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .hero-stats,
+      .github-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait-wrap {
+        min-height: 430px;
+      }
+
+      .portrait {
+        width: 68%;
+      }
+
+      .orbit {
+        max-width: 150px;
+      }
+
+      .map-panel {
+        min-height: 680px;
+      }
+
+      .node,
+      .node.core {
+        position: relative;
+        inset: auto;
+        width: auto;
+        min-height: auto;
+        margin: 12px;
+      }
+
+      .pipe-step,
+      .pipe-step:nth-child(2),
+      .pipe-step:nth-child(3),
+      .pipe-step:nth-child(4) {
+        margin-left: 0;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+
+      .contact-band {
+        padding: 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+
+      .js-reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <nav class="shell" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Moksha Smruthi Morapakula home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Moksha Smruthi Morapakula</span>
+      </a>
+      <div class="nav-links" aria-label="Section links">
+        <a href="#about">About</a>
+        <a href="#signal">Signal Map</a>
+        <a href="#case-study">Case Study</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div>
+          <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> Available June 2026 · Tempe, AZ · Open to relocate or remote</div>
+          <h1 id="hero-title">Moksha Smruthi Morapakula</h1>
+          <p class="subtitle">Data science and AI systems with evidence behind the story.</p>
+          <p class="positioning">M.S. Data Science candidate at Arizona State University building causal inference workflows, machine learning pipelines, public dashboards, and multimodal AI applications from messy real-world data.</p>
+          <div class="hero-actions" aria-label="Primary links">
+            <a class="button primary" href="mailto:mmorapak@asu.edu">Email Moksha</a>
+            <a class="button" href="Moksha_Smruthi_Morapakula_CV_final%20(1).pdf">View Resume</a>
+            <a class="button" href="https://www.linkedin.com/in/moksha-smruthi08/">LinkedIn</a>
+            <a class="button" href="https://github.com/mime108">GitHub</a>
+          </div>
+          <div class="hero-stats" aria-label="Portfolio proof points">
+            <div class="stat"><strong>50K+</strong><span>institutional records reconciled across 15+ data sources</span></div>
+            <div class="stat"><strong>541K</strong><span>e-commerce records analyzed for segmentation and campaign lift</span></div>
+            <div class="stat"><strong>1st</strong><span>place Voxel51 hackathon for multimodal fashion AI</span></div>
+          </div>
+        </div>
+        <div class="portrait-wrap" aria-label="AI and data science portfolio visual">
+          <div class="signal-board" aria-hidden="true"></div>
+          <img class="portrait" src="https://github.com/mime108.png" alt="Moksha Smruthi Morapakula profile image from GitHub">
+          <div class="orbit one">Causal analytics<small>DiD, fixed effects, SHAP, policy signals</small></div>
+          <div class="orbit two">ML pipelines<small>forecasting, classification, optimization</small></div>
+          <div class="orbit three">Dashboards<small>Streamlit, Tableau, public-facing reporting</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">About</div>
+            <h2 id="about-title">A builder who connects statistical rigor with usable outputs.</h2>
+          </div>
+          <p>Moksha works at the intersection of data engineering, machine learning, analytics, and communication. Her projects start with source reconciliation and end with dashboards, reports, or deployed tools that can be inspected by non-technical stakeholders.</p>
+        </div>
+        <div class="two-col">
+          <div class="copy-block">
+            <p>At ASU University Design Institute, Moksha reconciles and analyzes 50,000+ institutional records across internal and external sources using SQL and Python, then turns the results into charts, dashboards, and documented reporting workflows.</p>
+            <p>Her research and internship work spans deep learning architectures, reliability modeling, data quality workflows, client-facing databases, and executive reporting. The through-line is practical: clean the data, model the uncertainty, explain the signal, and ship an artifact someone can use.</p>
+          </div>
+          <aside class="proof-card" aria-label="Current focus">
+            <h3>Currently</h3>
+            <ul class="proof-list">
+              <li>Finishing an M.S. in Data Science, Analytics & Engineering at ASU.</li>
+              <li>Targeting data scientist, ML engineer, analytics engineer, and AI integration roles.</li>
+              <li>Building with Python, SQL, Streamlit, Tableau, XGBoost, TensorFlow, PyTorch, and LLM APIs.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="signal" aria-labelledby="signal-title">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Signal Map</div>
+            <h2 id="signal-title">Projects cluster around decisions, detection, and delivery.</h2>
+          </div>
+          <p>The strongest work combines data integration, interpretable modeling, and front-end proof: dashboards, reports, visual systems, and API-backed applications.</p>
+        </div>
+        <div class="signal-grid">
+          <div class="map-panel" aria-label="Skill and project map">
+            <div class="node core">Data Science + AI<span>From raw ingestion to decision-ready product</span></div>
+            <div class="node n1">Causal Impact<span>remote learning recovery, DiD, robust errors</span></div>
+            <div class="node n2">GreenTrace<span>satellite-verified supply-chain emissions</span></div>
+            <div class="node n3">Pricing ML<span>forecasting, risk classification, markdown simulation</span></div>
+            <div class="node n4">Multimodal AI<span>FiftyOne, Gemini, image critique pipeline</span></div>
+            <div class="node n5">Segmentation<span>RFM, KMeans, DBSCAN, Tableau</span></div>
+            <div class="node n6">Research CV<span>CNNs, FNNs, LSTMs, transfer learning</span></div>
+          </div>
+          <div class="matrix" aria-label="Impact matrix">
+            <div class="matrix-row"><strong>Data engineering</strong><span>Multi-source joins, schema alignment, validation, ETL/ELT, source documentation.</span></div>
+            <div class="matrix-row"><strong>Modeling</strong><span>Causal inference, XGBoost, Prophet, clustering, CNN transfer learning, anomaly detection.</span></div>
+            <div class="matrix-row"><strong>Interpretability</strong><span>SHAP decomposition, robust standard errors, risk factors, stakeholder-readable outputs.</span></div>
+            <div class="matrix-row"><strong>Delivery</strong><span>Streamlit apps, Tableau dashboards, public charts, scrollytelling, report QA.</span></div>
+            <div class="matrix-row"><strong>Collaboration</strong><span>Client requirements, research handoff, editorial workflows, student community leadership.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" aria-labelledby="story-title">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Scrollytelling</div>
+            <h2 id="story-title">The work moves from raw evidence to shipped decisions.</h2>
+          </div>
+          <p>A portfolio pattern repeated across Moksha's strongest projects: build the data asset, model the signal, explain the uncertainty, and deliver a usable interface.</p>
+        </div>
+        <div class="story-panel">
+          <aside class="story-sticky" aria-label="Project workflow signal">
+            <h3>Messy data becomes a decision system.</h3>
+            <div class="story-meter" aria-hidden="true">
+              <div class="meter-row">Data quality<div class="meter-bar"><span style="--fill: 92%"></span></div></div>
+              <div class="meter-row">Model evidence<div class="meter-bar"><span style="--fill: 84%"></span></div></div>
+              <div class="meter-row">Interpretability<div class="meter-bar"><span style="--fill: 88%"></span></div></div>
+              <div class="meter-row">Delivery polish<div class="meter-bar"><span style="--fill: 80%"></span></div></div>
+            </div>
+          </aside>
+          <div class="story-steps">
+            <article class="story-step">
+              <span class="step-number">01</span>
+              <h3>Normalize the source reality.</h3>
+              <p>Government education tables, retail SKUs, satellite measurements, outreach records, and client databases are reconciled before modeling begins. The portfolio emphasizes joins, schema alignment, zero-padding fixes, validation rules, and repeatable ETL.</p>
+            </article>
+            <article class="story-step">
+              <span class="step-number">02</span>
+              <h3>Choose models that match the decision.</h3>
+              <p>Difference-in-Differences handles causal recovery questions, XGBoost supports risk classification, Prophet forecasts near-term demand, and clustering turns customer behavior into targetable campaign groups.</p>
+            </article>
+            <article class="story-step">
+              <span class="step-number">03</span>
+              <h3>Explain the signal.</h3>
+              <p>SHAP decomposition, robust standard errors, ROC checks, PCA validation, discrepancy indexes, and documented transformation logic make the outputs easier to challenge, defend, and reuse.</p>
+            </article>
+            <article class="story-step">
+              <span class="step-number">04</span>
+              <h3>Ship the evidence.</h3>
+              <p>Streamlit dashboards, Tableau reports, public-facing charts, scrollytelling interfaces, and client-ready reports turn analysis into something stakeholders can actually navigate.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-study" aria-labelledby="case-title">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Featured Case Study</div>
+            <h2 id="case-title">Causal impact of remote learning on U.S. student recovery.</h2>
+          </div>
+          <p>A full-stack analytical workflow that merged government education and socioeconomic data, tested causal assumptions, trained an interpretable risk model, and delivered findings through Streamlit.</p>
+        </div>
+        <div class="featured">
+          <div class="case-visual" aria-label="Case study pipeline">
+            <div class="pipeline">
+              <div class="pipe-step">Input<span>Stanford SEDA, CDC, NCES, Census SAIPE joined on NCES district ID.</span></div>
+              <div class="pipe-step">Processing<span>Encoding repairs, zero-padding fixes, subgroup filtering across 44,000+ district-year observations.</span></div>
+              <div class="pipe-step">Modeling<span>Difference-in-Differences with district and year fixed effects, HC3 errors, parallel trend checks.</span></div>
+              <div class="pipe-step">Output<span>Streamlit dashboard with choropleth maps, trend views, model comparison, and at-risk district signals.</span></div>
+            </div>
+            <img class="case-photo" src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=900&q=80" alt="Students working in a lecture hall, representing education analytics">
+          </div>
+          <div class="case-copy">
+            <h3>Why it stands out</h3>
+            <p>The project does not stop at prediction. It separates causal estimation from risk classification, uses SHAP to explain poverty, urbanicity, and broadband access effects, and packages the results for public inspection.</p>
+            <div class="terminal" aria-label="Project terminal summary">
+              input: 4 public datasets<br>
+              rows: 44,000+ district-year records<br>
+              causal model: DiD + fixed effects + HC3 SE<br>
+              ml layer: XGBoost + SHAP<br>
+              output: public Streamlit dashboard
+            </div>
+            <div class="tags">
+              <span>Python</span><span>pandas</span><span>statsmodels</span><span>XGBoost</span><span>SHAP</span><span>Streamlit</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-title">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Experience</div>
+            <h2 id="experience-title">Data roles with measurable reporting and model outcomes.</h2>
+          </div>
+          <p>Experience across higher education analytics, machine learning research, data systems engineering, and content reporting.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <h3>Research, Data & Content Aide · ASU University Design Institute</h3>
+            <div class="item-meta"><span>Tempe, AZ</span><span>Oct 2025 - Present</span></div>
+            <p>Reconciles 50,000+ institutional records across 15+ sources with SQL and Python, then publishes charts, dashboards, and visual reports for non-technical higher education audiences. Documents sources, transformations, and reporting workflows for repeatability.</p>
+            <ul class="detail-list">
+              <li>Analyzes internal and external institutional datasets with Python, SQL, pandas, and BeautifulSoup.</li>
+              <li>Translates complex multi-source data into decision-ready visual outputs for public and institutional audiences.</li>
+              <li>Maintains source notes, transformation logic, and reporting workflows so recurring analyses can be reproduced.</li>
+            </ul>
+          </article>
+          <article class="timeline-item">
+            <h3>Research Intern - Machine Learning & Deep Learning · SRM University AP</h3>
+            <div class="item-meta"><span>Amaravati, India</span><span>May 2022 - Dec 2023</span></div>
+            <p>Designed and evaluated CNNs, Fuzzy Neural Networks, and LSTMs across computer vision and sequence tasks. Built preprocessing pipelines that reduced manual effort by 30% and improved model accuracy from 73% to 85%.</p>
+            <ul class="detail-list">
+              <li>Applied TensorFlow and PyTorch to compare AI algorithms across hardware environments.</li>
+              <li>Used transfer learning, custom loss functions, and optimization methods to improve performance and scalability.</li>
+              <li>Built reliability models and failure prediction patterns for stability under heavy computational loads.</li>
+              <li>Produced technical documentation covering methodology, implementation steps, and evaluation metrics for lab handoff.</li>
+            </ul>
+          </article>
+          <article class="timeline-item">
+            <h3>Data Systems Engineering Intern · Aganith Pvt Ltd</h3>
+            <div class="item-meta"><span>Hyderabad, India</span><span>Mar 2024 - Jul 2024</span></div>
+            <p>Maintained relational databases for client-facing applications, cleaned and validated multi-source datasets, gathered requirements, and quality-tested reports under confidentiality constraints across maritime, finance, and enterprise software work.</p>
+            <ul class="detail-list">
+              <li>Administered relational databases supporting live client-facing applications.</li>
+              <li>Performed data cleaning, transformation, and validation to preserve integrity across source systems.</li>
+              <li>Documented requirements and change requests with clients, then verified implementation across reporting cycles.</li>
+              <li>Ran systematic QA against defined output specifications before client deliverables were released.</li>
+            </ul>
+          </article>
+          <article class="timeline-item">
+            <h3>Data Analysis & Content Reporting Intern · IR & Higher Studies Office</h3>
+            <div class="item-meta"><span>SRM University AP</span><span>May 2022 - Apr 2024</span></div>
+            <p>Analyzed outreach datasets from 30+ countries, produced executive-facing reports that increased stakeholder engagement by 25%, and reduced annual magazine production time by 30% through documented workflows.</p>
+            <ul class="detail-list">
+              <li>Built tracking workflows for cross-institutional outreach programs and reconciled records across sources.</li>
+              <li>Authored research-driven reports on higher education policy and international partnerships.</li>
+              <li>Led publication workflow for the annual International Relations magazine across contributors and editorial data.</li>
+              <li>Managed sensitive cross-border correspondence and stakeholder communications for university leadership.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-title">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Projects</div>
+            <h2 id="projects-title">Project proof cards.</h2>
+          </div>
+          <p>Eight CV-backed cards emphasize the real data, model choice, constraint, and output. The links point to Moksha's public GitHub profile where available repositories can be inspected.</p>
+        </div>
+        <div class="projects">
+          <article class="project-card">
+            <div>
+              <h3>Dynamic Pricing for Perishable Inventory</h3>
+              <div class="item-meta"><span>Retail ML pipeline</span><span>100,000+ records · 45,301 SKUs</span></div>
+              <p>Built a five-stage pricing workflow integrating Dunnhumby Complete Journey and Kaggle perishables data through category-level schema alignment. The system forecasts demand, classifies shelf-life risk, estimates price elasticity, and simulates markdown strategies.</p>
+              <div class="tags"><span>Python</span><span>XGBoost</span><span>Prophet</span><span>SQL</span><span>Tableau</span></div>
+            </div>
+            <div class="project-side">
+              <figure class="project-image">
+                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80" alt="Fresh produce aisles in a grocery store for perishable inventory analytics">
+                <figcaption>Perishable inventory</figcaption>
+              </figure>
+              <div class="project-proof">
+                <span>Input: heterogeneous retail datasets</span>
+                <span>Process: forecasting + AUC-ROC risk model + grid search</span>
+                <span>Output: 30-day pricing strategy simulation</span>
+                <span>Constraint: sparse SKU demand handled with category aggregation</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <h3>GreenTrace - Satellite-Verified Supply Chain Intelligence</h3>
+              <div class="item-meta"><span>Emissions intelligence</span><span>7 global corridors</span></div>
+              <p>Built an emissions intelligence platform that cross-references company-declared shipping emissions with ESA Sentinel-5P NO2 satellite data from Google Earth Engine. A discrepancy index flags corridor-level anomalies and supports route optimization.</p>
+              <div class="tags"><span>Python</span><span>Google Earth Engine</span><span>Sentinel-5P</span><span>Streamlit</span></div>
+            </div>
+            <div class="project-side">
+              <figure class="project-image">
+                <img src="https://images.unsplash.com/photo-1494412685616-a5d310fbb07d?auto=format&fit=crop&w=900&q=80" alt="Shipping containers at a port for supply-chain emissions analysis">
+                <figcaption>Supply-chain emissions</figcaption>
+              </figure>
+              <div class="project-proof">
+                <span>Input: declared emissions + TROPOMI L3 satellite data</span>
+                <span>Process: GLEC v3.2 / ISO 14083 emission factors</span>
+                <span>Output: composite scoring dashboard</span>
+                <span>Finding: 4 of 7 corridors flagged at +35% average anomaly</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <h3>Outfit Roaster - Multimodal AI Fashion Analysis</h3>
+              <div class="item-meta"><span>Voxel51 Hackathon</span><span>1st Place</span></div>
+              <p>Created a multimodal AI application using Voxel51 FiftyOne for image dataset management and Google Gemini for vision-language critique generation. The pipeline ingests outfit images, tags metadata, calls the LLM API, and returns structured natural-language output.</p>
+              <div class="tags"><span>Voxel51 FiftyOne</span><span>Google Gemini</span><span>Multimodal AI</span><span>API orchestration</span></div>
+            </div>
+            <div class="project-side">
+              <figure class="project-image">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80" alt="Fashion clothing rack for multimodal outfit analysis">
+                <figcaption>Vision-language critique</figcaption>
+              </figure>
+              <div class="project-proof">
+                <span>Input: outfit imagery</span>
+                <span>Process: vision metadata + Gemini prompt workflow</span>
+                <span>Output: real-time fashion critique</span>
+                <span>Constraint: hackathon timing and end-to-end orchestration</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <h3>Customer Segmentation & Market Campaign Optimization</h3>
+              <div class="item-meta"><span>Analytics and BI</span><span>541,000 e-commerce records</span></div>
+              <p>Processed large e-commerce data with RFM pipelines, KMeans, DBSCAN, and PCA to distinguish segments from VIP customers to budget-sensitive shoppers. Tableau dashboards translated clusters into campaign decisions.</p>
+              <div class="tags"><span>Python</span><span>SQL</span><span>Tableau</span><span>KMeans</span><span>DBSCAN</span><span>PCA</span></div>
+            </div>
+            <div class="project-side">
+              <figure class="project-image">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Analytics dashboard on a laptop for customer segmentation work">
+                <figcaption>Customer analytics</figcaption>
+              </figure>
+              <div class="project-proof">
+                <span>Input: transaction records</span>
+                <span>Process: RFM + clustering + PCA validation</span>
+                <span>Output: Tableau segment dashboard</span>
+                <span>Impact: 22% improvement in campaign conversion rates</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <h3>Financial Risk Reporting & Fraud Detection</h3>
+              <div class="item-meta"><span>Risk analytics</span><span>6,000+ compliance records</span></div>
+              <p>Analyzed institutional compliance records to identify fraud signals through normalization, correlation analysis, and repeatable reporting logic. The work translated risk factors into Tableau dashboards with drill-down filters, KPI tracking, and time-series heatmaps.</p>
+              <div class="tags"><span>Python</span><span>SQL</span><span>Tableau</span><span>scikit-learn</span><span>Risk reporting</span></div>
+            </div>
+            <div class="project-side">
+              <figure class="project-image">
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80" alt="Financial documents and calculator representing fraud detection reporting">
+                <figcaption>Financial risk signals</figcaption>
+              </figure>
+              <div class="project-proof">
+                <span>Input: 6,000+ compliance records</span>
+                <span>Process: Z-score normalization + correlation analysis</span>
+                <span>Output: Tableau KPI dashboards and heatmaps</span>
+                <span>Finding: 5 risk factors predicted 85% of fraudulent activity</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <h3>Skin Cancer Classification with InceptionV3</h3>
+              <div class="item-meta"><span>Medical image classification</span><span>91% accuracy</span></div>
+              <p>Built a CNN classifier using InceptionV3 transfer learning for skin cancer image classification. The project included OpenCV preprocessing, AWS-backed large-scale processing, and robustness evaluation through ROC analysis for sensitivity and specificity.</p>
+              <div class="tags"><span>Python</span><span>TensorFlow</span><span>OpenCV</span><span>AWS</span><span>InceptionV3</span></div>
+            </div>
+            <div class="project-side">
+              <figure class="project-image">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80" alt="Clinical technology and medical imaging environment representing CNN classification">
+                <figcaption>Medical imaging model</figcaption>
+              </figure>
+              <div class="project-proof">
+                <span>Input: medical image dataset</span>
+                <span>Process: InceptionV3 transfer learning + OpenCV preprocessing</span>
+                <span>Output: CNN classifier with ROC evaluation</span>
+                <span>Result: 91% classification accuracy</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <h3>Fuzzy Neural Networks & GAN Research Systems</h3>
+              <div class="item-meta"><span>Deep learning research</span><span>SRM University AP</span></div>
+              <p>Designed and evaluated research-grade deep learning architectures including Fuzzy Neural Networks, GANs, CNNs, and LSTMs across computer vision and sequence classification tasks. The work emphasized comparative model evaluation, custom loss functions, transfer learning, and reproducible research handoff.</p>
+              <div class="tags"><span>Python</span><span>TensorFlow</span><span>PyTorch</span><span>GANs</span><span>Fuzzy Neural Networks</span></div>
+            </div>
+            <div class="project-side">
+              <figure class="project-image">
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=900&q=80" alt="Abstract AI neural network visualization representing fuzzy neural networks and GAN research">
+                <figcaption>Neural research systems</figcaption>
+              </figure>
+              <div class="project-proof">
+                <span>Input: vision and sequence classification datasets</span>
+                <span>Process: FNNs, GANs, CNNs, LSTMs, transfer learning</span>
+                <span>Output: reproducible model comparisons and documentation</span>
+                <span>Impact: preprocessing reduced manual effort by 30%</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <h3>Interactive Space Mission Scrollytelling Website</h3>
+              <div class="item-meta"><span>Data visualization</span><span>4,000+ launch records</span></div>
+              <p>Built a scrollytelling web application visualizing 60+ years of NASA and UNOOSA space mission data. The project combined ETL, 10+ custom visualizations, 3D components, animated SVGs, and accessibility features.</p>
+              <div class="tags"><span>HTML/CSS</span><span>D3.js</span><span>Three.js</span><span>Python</span><span>JavaScript</span></div>
+            </div>
+            <div class="project-side">
+              <figure class="project-image">
+                <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=900&q=80" alt="Rocket launch representing space mission scrollytelling data">
+                <figcaption>Space mission data</figcaption>
+              </figure>
+              <div class="project-proof">
+                <span>Input: NASA / UNOOSA launch datasets</span>
+                <span>Process: ETL into web-accessible formats</span>
+                <span>Output: interactive scrollytelling site</span>
+                <span>Quality: ARIA attributes and keyboard navigation</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="github" aria-labelledby="github-title">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">GitHub Activity</div>
+            <h2 id="github-title">Public build signals from mime108.</h2>
+          </div>
+          <p>This section uses GitHub's public API in the browser. No token is embedded, and the page still works if rate limits prevent live data from loading.</p>
+        </div>
+        <div class="github-panel">
+          <h3 id="github-status">Loading public GitHub activity...</h3>
+          <div class="github-grid">
+            <div class="github-stat"><strong id="repo-count">--</strong><span>public repositories</span></div>
+            <div class="github-stat"><strong id="language-count">--</strong><span>detected languages</span></div>
+            <div class="github-stat"><strong id="latest-push">--</strong><span>latest public push</span></div>
+          </div>
+          <div class="repo-list" id="repo-list" aria-label="Recent public repositories"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Skills</div>
+            <h2 id="skills-title">Skills mapped to project evidence.</h2>
+          </div>
+          <p>The stack is broad, but the portfolio foregrounds skills that show up repeatedly in real project work.</p>
+        </div>
+        <div class="skills">
+          <article class="skill-card">
+            <h3>Machine Learning & AI</h3>
+            <p>XGBoost, TensorFlow, PyTorch, Keras, scikit-learn, CNNs, GANs, Fuzzy-Neural Networks, LSTMs, transfer learning, clustering, anomaly detection, causal inference, LLM API integration.</p>
+          </article>
+          <article class="skill-card">
+            <h3>Data Engineering & Analytics</h3>
+            <p>Python, SQL, pandas, NumPy, ETL/ELT design, data validation, multi-source integration, schema alignment, data warehousing, KPI tracking, A/B testing, statistical modeling.</p>
+          </article>
+          <article class="skill-card">
+            <h3>Visualization & Delivery</h3>
+            <p>Streamlit, Tableau, Power BI, D3.js, Three.js, Plotly, public-facing charts, visual reporting, dashboards, documentation, stakeholder communication, reproducible workflows.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" aria-labelledby="education-title">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Education</div>
+            <h2 id="education-title">Academic foundation in AI, ML, and decision analytics.</h2>
+          </div>
+          <p>Graduate study in data science and engineering builds on a computer science degree focused on AI and machine learning.</p>
+        </div>
+        <div class="education-grid">
+          <article class="education-card">
+            <h3>Arizona State University</h3>
+            <div class="item-meta"><span>Tempe, AZ</span><span>Aug 2024 - May 2026</span></div>
+            <p>M.S. Data Science, Analytics & Engineering. Focus: Computing and Decision Analytics. Coursework includes machine learning, deep learning, data mining, data visualization, data processing at scale, statistics, and information assurance.</p>
+          </article>
+          <article class="education-card">
+            <h3>SRM University AP</h3>
+            <div class="item-meta"><span>Amaravati, India</span><span>Jun 2020 - May 2024</span></div>
+            <p>B.Tech. Computer Science & Engineering with AI & ML. Coursework includes data structures, AI, database systems, deep learning, machine learning, computer networks, statistics, and operating systems.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="shell">
+        <div class="contact-band">
+          <div>
+            <div class="section-kicker">Contact</div>
+            <h2 id="contact-title">Available for data science, ML, analytics engineering, and AI integration roles.</h2>
+            <p>Moksha is based in Tempe, Arizona, open to relocation or remote roles, and available beginning June 2026. Best-fit work: applied ML, causal analytics, BI dashboards, data quality pipelines, and practical AI systems.</p>
+          </div>
+          <div class="contact-links">
+            <a class="button" href="mailto:mmorapak@asu.edu">mmorapak@asu.edu</a>
+            <a class="button" href="tel:+16024916284">+1 602-491-6284</a>
+            <a class="button" href="https://www.linkedin.com/in/moksha-smruthi08/">LinkedIn Profile</a>
+            <a class="button" href="https://github.com/mime108">GitHub Profile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const githubUsername = "mime108";
+
+    function setupScrollExperience() {
+      const progress = document.getElementById("scroll-progress-bar");
+      const revealTargets = document.querySelectorAll(".section-head, .copy-block, .proof-card, .map-panel, .matrix-row, .story-sticky, .story-step, .case-visual, .case-copy, .project-card, .timeline-item, .skill-card, .education-card, .github-panel, .contact-band");
+
+      revealTargets.forEach((element, index) => {
+        element.classList.add("js-reveal");
+        element.style.transitionDelay = `${Math.min(index % 5, 4) * 45}ms`;
+      });
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -80px 0px" });
+
+      revealTargets.forEach((element) => revealObserver.observe(element));
+
+      const storySticky = document.querySelector(".story-sticky");
+      if (storySticky) {
+        const stickyObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("is-visible");
+          });
+        }, { threshold: 0.45 });
+        stickyObserver.observe(storySticky);
+      }
+
+      function updateProgress() {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+        progress.style.width = `${Math.min(Math.max(ratio, 0), 1) * 100}%`;
+      }
+
+      updateProgress();
+      window.addEventListener("scroll", updateProgress, { passive: true });
+    }
+
+    async function loadGitHubActivity() {
+      const status = document.getElementById("github-status");
+      const repoCount = document.getElementById("repo-count");
+      const languageCount = document.getElementById("language-count");
+      const latestPush = document.getElementById("latest-push");
+      const repoList = document.getElementById("repo-list");
+
+      try {
+        const [userResponse, repoResponse] = await Promise.all([
+          fetch(`https://api.github.com/users/${githubUsername}`),
+          fetch(`https://api.github.com/users/${githubUsername}/repos?sort=pushed&per_page=6`)
+        ]);
+
+        if (!userResponse.ok || !repoResponse.ok) {
+          throw new Error("GitHub API unavailable");
+        }
+
+        const user = await userResponse.json();
+        const repos = await repoResponse.json();
+        const languages = new Set(repos.map((repo) => repo.language).filter(Boolean));
+
+        status.textContent = `${user.name || githubUsername}'s public GitHub signal`;
+        repoCount.textContent = user.public_repos ?? repos.length;
+        languageCount.textContent = languages.size || "--";
+        latestPush.textContent = repos[0]?.pushed_at ? new Date(repos[0].pushed_at).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "--";
+
+        repoList.innerHTML = repos.map((repo) => {
+          const language = repo.language || "Repo";
+          return `<a href="${repo.html_url}"><strong>${repo.name}</strong><span>${language}</span></a>`;
+        }).join("");
+      } catch (error) {
+        status.textContent = "GitHub public activity could not be loaded right now.";
+        repoCount.textContent = "View";
+        languageCount.textContent = "on";
+        latestPush.textContent = "GitHub";
+        repoList.innerHTML = `<a href="https://github.com/${githubUsername}"><strong>Open ${githubUsername} on GitHub</strong><span>Profile</span></a>`;
+      }
+    }
+
+    setupScrollExperience();
+    loadGitHubActivity();
+  </script>
+</body>
+</html>
